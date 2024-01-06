@@ -1,16 +1,36 @@
 # Mock TNT
-Mod for Minetest
+This Minetest mod creates propulsive, blinding, but non-damaging TNT that still adds to gameplay as an alternative to TNT.
 
-## Usage
-* Place in mods folder such as in your subgame
-* "Unknown Explosive" (mock_tnt:mock_tnt) can coexist with TNT if TNT is enabled, but gunpowder and mock_tnt work even if enable_tnt is false.
 
 ## Differences from regular TNT
-* Does not harm any block or entity
+* Does not destroy nodes (blocks)
+* Does not cause fire
+* Causes "Blind" and "Slow" conditions temporarily (if playereffects is installed)
+* Does not ignite nearby TNT (*may in a later version*)
+
+### Similarities to regular TNT
+* Causes knockback: pushes player away from explosion by 1 (*may be increased in a later version*)
+* Reduces HP of entities in range.
+
+
+## Installation
+* Place in .minetest/mods/ (or the mods/ subfolder in your game).
+* Set `enable_tnt = false` in your minetest.conf
+* This mod requires the tnt mod, and the playereffects mod is recommended.
+
+
+## Usage
+Settings: The only settings used are `enable_tnt` and `tnt_radius` that are
+documented in the tnt mod (required), but the `enable_tnt` setting
+impacts the mock_tnt as described below (for more documentation see
+settingtypes.txt in minetest_game which is the origin of the tnt mod).
+
+Modes:
+* `enable_tnt = false` (recommended): This mod will define gunpowder and mock_tnt even if enable_tnt is false.
+  - Generally, unless you set it to false, there is no point in using the mock_tnt mod except as described below for worlds that used it before.
+* `enable_tnt = true` (fallback mode): mock_tnt still is defined but has no recipe. This behavior is useful if you are re-enabling regular TNT for a world that contains mock_tnt already.
+  - The caption will say "Unknown Explosive" (mock_tnt:mock_tnt) and the texture will be a parody texture of "unknown item" texture (with a fuse added) so it can coexist separately from TNT when TNT is enabled.
+
 
 ## Known Issues
-* when TNT is enabled, there is no crafting recipe for mock_tnt
-* also ignite gunpowder with "default:torch", "fire:permanent_flame" (minetest_game only ignites via "fire:basic_flame", "default:lava_source", "default:lava_flowing") -- for some reason torch works already but permanent_flame does not
-* Make gunpowder ignite via "building_blocks:Fireplace"
-* Make TNT ignite via neighbors "throwing:arrow_fireworks_blue", "throwing:arrow_fireworks_red"
-* Make "fire:flint_and_steel" item ignite TNT and gunpowder
+See <https://github.com/Poikilos/mock_tnt/issues>.
