@@ -1,0 +1,1 @@
+Provides TNT that only affects entities not nodes (overrides tnt recipe when enable_tnt = false)
