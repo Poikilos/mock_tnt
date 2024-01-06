@@ -1,6 +1,5 @@
 # Mock TNT
-This Minetest mod creates propulsive, blinding, but non-damaging TNT that still adds to gameplay as an alternative to TNT.
-
+This Minetest mod provides TNT that only affects entities not nodes.
 
 ## Differences from regular TNT
 * Does not destroy nodes (blocks)
