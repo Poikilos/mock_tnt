@@ -123,7 +123,9 @@ local function calc_velocity(pos1, pos2, old_vel, power)
 	vel = vector.divide(vel, dist)
 
 	-- Add old velocity
-	vel = vector.add(vel, old_vel)
+	if old_vel then
+		vel = vector.add(vel, old_vel)  -- would crash on nil value (entity dead?)
+	end
 
 	-- randomize it a bit
 	vel = vector.add(vel, {
@@ -171,7 +173,14 @@ local function entity_physics(pos, radius, drops)
 			end
 
 			if do_knockback then
-				local obj_vel = obj:getvelocity()
+				local obj_vel = nil
+				if obj.get_velocity then
+					obj_vel = obj:get_velocity()
+				elseif obj.getvelocity then
+					-- may return nil in newer versions
+					-- (So check for get_velocity first!)
+					obj_vel = obj:getvelocity()
+				end
 				obj:setvelocity(calc_velocity(pos, obj_pos,
 						obj_vel, radius * 10))
 			end
