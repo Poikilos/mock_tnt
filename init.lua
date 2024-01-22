@@ -432,7 +432,7 @@ function mock_tnt.register_tnt(def)
 	if not def.tiles then def.tiles = {} end
 	local tnt_top = def.tiles.top or def.name .. "_top.png"
 	local tnt_bottom = def.tiles.bottom or def.name .. "_bottom.png"
-	local tnt_side = def.tiles.side or def.name .. "_side.png"
+	local tnt_side = def.tiles.side or def.name .. "_side-blank.png"
 	local tnt_burning = def.tiles.burning or def.name .. "_top_burning_animated.png"
 	local all_tiles = { tnt_top, tnt_bottom, tnt_side }
 	if def.all_tiles then all_tiles = def.all_tiles end
