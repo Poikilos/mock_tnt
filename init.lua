@@ -505,7 +505,7 @@ end
 
 
 -- minetest.register_node( "mock_tnt:mock_tnt", {
--- 	description = "Unknown Explosive",
+-- 	description = "Flashbang",
 -- 	tiles = { "mock_tnt_top.png", "mock_tnt_sides.png", "mock_tnt_sides.png", "mock_tnt_sides.png", "mock_tnt_sides.png", "mock_tnt_sides.png" },
 -- 	is_ground_content = true,
 -- 	groups = {cracky = 1, level = 2},
@@ -514,7 +514,7 @@ end
 
 mock_tnt.register_tnt({
 	name = "mock_tnt:mock_tnt",
-	description = "Unknown Explosive",
+	description = "Flashbang",
 	radius = tnt_radius,
 	-- all_tiles = { "mock_tnt_top.png", "mock_tnt_bottom.png", "mock_tnt_side-blank.png", "mock_tnt_side-blank.png", "mock_tnt_side.png", "mock_tnt_side.png" },
 	-- could also be top,bottom,east,east,north,north
